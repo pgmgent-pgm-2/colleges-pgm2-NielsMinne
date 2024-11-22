@@ -64,8 +64,8 @@ console.log("filter:", filteredWords);
 // every(): Controleert of alle elementen in de array aan een voorwaarde voldoen.
 // some(): Controleert of ten minste één element aan een voorwaarde voldoet.
 
-const isBelowTreshold = (currentValue) => currentValue >= 1; //voorwaarde in een variabele geplaatst.
 const numbers2 = [1, 30, 45, 10, 16, 180, 46];
+const isBelowTreshold = (currentValue) => currentValue >= 1; //voorwaarde in een variabele geplaatst.
 console.log("every:",numbers2.every(isBelowTreshold));
 
 const numbers3 = [20, 5, 8, 1, 4];
