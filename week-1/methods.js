@@ -82,6 +82,46 @@ console.log("flat:",nestedArray.flat(2));
 
 //ADVANCED METHODS
 
+// === sort() ===
+const months = ["March", "jan", "Feb", "Dec"];
+const sortedMonths = months.map(month => month.toLowerCase()).sort();
+console.log(sortedMonths);
+
+const numArray = [1, 30, 4, 21, 100000];
+numArray.sort((a, b) => a - b);
+console.log(numArray);
+
+// === reduce() ===
+// reduce(): Verzamelt de elementen van een array tot één waarde.
+const reduced = [1, 2, 3, 4, 5].reduce((prev, next) => prev + next);
+console.log(reduced); // 15
+
+const shoppingBasket = [
+    { name: "Smartphone", qty: 2, price: 500, freeOfCharge: false },
+    { name: "Screen Protector", qty: 2, price: 5, freeOfCharge: true },
+    { name: "Tablet", qty: 1, price: 800, freeOfCharge: false },
+  ];
+  const totalPrice = shoppingBasket.reduce((sum, item) => {
+      if (!item.freeOfCharge) {
+          sum += item.price * item.qty;
+      }
+    return sum;
+  }, 0);
+  console.log(`Total Price: $${totalPrice}`);
+
+// === slice() vs splice() ===
+//slice(): Maakt een nieuwe array met een deel (origineel blijft intact)
+const animals = ["ant", "bison", "parrot", "duck", "tiger"];
+
+const selectedAnimals = animals.slice(1, 4); //van index 1 tot (maar niet inclusief) 4 -> Bison - duck
+console.log(selectedAnimals);
+console.log(animals);
+
+//splice(): verwijdert of voegt elementen toe aan de originele array
+const removedAnimals = animals.splice(3, 2);
+console.log(removedAnimals);
+console.log(animals);
+
 
 
 

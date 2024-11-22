@@ -46,4 +46,39 @@ colors.forEach((color, index) => {
     console.log(index, color);
 })
 
-//5.
+//5. Methods - strings
+const woorden = [
+    'mal',
+    'snurkduif',
+    'bromvlieg',
+    'snottebel',
+    'knotsgek',
+    'pindakaas',
+    'fluitketel',
+    'smurfenmuts',
+];
+
+//Sorteren
+woorden.sort();
+
+//6. Methods - numbers
+
+
+//7. Methods - subarrays
+
+
+
+
+//8.Optellen arrays
+
+
+
+
+
+//9. Langste woord in array
+
+
+
+
+
+//10.Even getallen filteren
