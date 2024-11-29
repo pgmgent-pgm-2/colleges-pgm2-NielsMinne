@@ -88,7 +88,7 @@ console.log(newName, age, city);
 const { city: city2, name } = person;
 
 //Standaard waarde
-const { message = "Something went wrong" } = {};
+const { name:name2, message = "Something went wrong" } = {name: "Niels"};
 console.log(message);
 
 //Variabele naam wijzigen
@@ -127,8 +127,8 @@ const extendedPeople = [
     },
 ];
   
-for (const { name: n, family: { father: f } } of extendedPeople) {
-    console.log(`Name ${n} , Father: ${f}`);
+for (const { name, family: { father } } of extendedPeople) {
+    console.log(`Name ${name} , Father: ${father}`);
 }
 
 
@@ -140,3 +140,4 @@ function printPerson({name,age,city}) {
 }
 
 printPerson(person);
+
