@@ -68,4 +68,75 @@ for (const [index, element] of arrLetters.entries()) { //bij entries krijg je 2 
 
 //OBJECT DESTRUCTURING
 
+const person = {
+    name: "Alice",
+    age: 25,
+    city: "New York"
+};
 
+//zonder destructuring
+
+// const name = person.name;
+// const age = person.age;
+// const city = person.city;
+
+//met destructuring - volgorde is niet van belang!!
+const { age, name: newName, city } = person;
+console.log(newName, age, city);
+
+//items negeren - property niet vermelden!
+const { city: city2, name } = person;
+
+//Standaard waarde
+const { message = "Something went wrong" } = {};
+console.log(message);
+
+//Variabele naam wijzigen
+const { name: fullName, age: personAge, city: residence } = person;
+console.log(fullName); // Output: 'Alice'
+console.log(personAge); // Output: 25
+console.log(residence); // Output: 'New York'
+
+
+//spread operator ( rest)
+const person2 = { name: "Alice", age: 25, city: "New York", country: "USA" };
+const { name: name1, age:age1, ...address} = person2;
+console.log(name1); // Output: 'Alice'
+console.log(age1); // Output: 25
+console.log(address); // Output: { city: 'New York', country: 'USA' }
+
+//for ... of loop met destructuring
+const extendedPeople = [
+    {
+      name: "Mike Smith",
+      family: {
+        mother: "Jane Smith",
+        father: "Harry Smith",
+        sister: "Samantha Smith",
+      },
+      age: 35,
+    },
+    {
+      name: "Tom Jones",
+      family: {
+        mother: "Norah Jones",
+        father: "Richard Jones",
+        brother: "Howard Jones",
+      },
+      age: 25,
+    },
+];
+  
+for (const { name: n, family: { father: f } } of extendedPeople) {
+    console.log(`Name ${n} , Father: ${f}`);
+}
+
+
+//Object als parameter van een functie
+function printPerson({name,age,city}) {
+    console.log(`Name: ${name}`);
+    console.log(`Age: ${age}`);
+    console.log(`City: ${city}`);
+}
+
+printPerson(person);
