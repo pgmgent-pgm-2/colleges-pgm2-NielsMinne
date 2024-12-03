@@ -1,143 +1,140 @@
-//ARRAY DESTRUCTURING
+// Voorbeeld array met strings
 const arr = ["first", "second", "third"];
 
-//zonder destructuring -> assignen naar een variabele
-const f = arr[0];
-const s = arr[1];
-const t = arr[2];
+// Zonder destructuring: handmatige toewijzing
+const f = arr[0];  // Het eerste element van de array
+const s = arr[1];  // Het tweede element van de array
+const t = arr[2];  // Het derde element van de array
 
-//MET destructuring
+// Met destructuring: kortere syntax om waarden toe te wijzen
 const [firstItem, secondItem, thirdItem] = arr;
 
-console.log(firstItem); //Door destructuring zit het eerste element (zijnde 'first') in deze variabele
-console.log(secondItem);//Door destructuring zit het tweede element (zijnde 'second') in deze variabele
-console.log(thirdItem);//Door destructuring zit het eerste element (zijnde 'third') in deze variabele
+console.log(firstItem); // Output: 'first'
+console.log(secondItem); // Output: 'second'
+console.log(thirdItem); // Output: 'third'
 
-//Ander voorbeeld met kleur
+// Voorbeeld met kleurenarray
 const colors = ["red", "green", "blue"];
 const [firstColor, secondColor, thirdColor] = colors;
-console.log(firstColor); // Output: red
-console.log(secondColor); // Output: green
-console.log(thirdColor); // Output: blue
 
-//Variabelen kunnen ook op voorhand worden gedeclareerd om vervolgens waarden te assignen met destructuring.
+console.log(firstColor); // Output: 'red'
+console.log(secondColor); // Output: 'green'
+console.log(thirdColor); // Output: 'blue'
+
+// Destructuring naar vooraf gedefinieerde variabelen
 let df, ds, dt;
 [df, ds, dt] = arr;
 
 //-----------------------------------------------------
 
-//Elementen negeren 
-const [, , thirdWord] = ["foo", "bar", "baz"]; //Door , te plaatsen slaan we een index over van de array
-console.log(thirdWord);
+// Elementen overslaan met komma's
+const [, , thirdWord] = ["foo", "bar", "baz"]; // Het derde element wordt direct toegewezen
+console.log(thirdWord); // Output: 'baz'
 
-//Standaardwaarden meegeven
+// Standaardwaarden toekennen als er geen waarde is
 const colors2 = ["red", "green"];
-const [firstColor2, secondColor2, thirdColor2 = "blue"] = colors2; //in thirdColor2 kennen we een waarde blauw aan
-console.log(firstColor2); // Output: red
-console.log(secondColor2); // Output: green
-console.log(thirdColor2); // Output: blue (standaardwaarde)
+const [firstColor2, secondColor2, thirdColor2 = "blue"] = colors2; // 'blue' als standaardwaarde
+console.log(firstColor2); // Output: 'red'
+console.log(secondColor2); // Output: 'green'
+console.log(thirdColor2); // Output: 'blue' (omdat geen derde waarde in de array staat)
 
 //-----------------------------------------------------
 
-//Referentie naar andere variabelen
-const [d = 3, e = d] = [7, undefined]; //de standaardwaarde van d = 3 wint niet van de waarde die in de array staat
-//in dit geval is d dus 7. e wordt d dus is e ook 7
-console.log(d, e); // Output 7 7
+// Gebruik van andere variabelen als referentie
+const [d = 3, e = d] = [7, undefined]; // d krijgt 7, e neemt waarde van d over
+console.log(d, e); // Output: 7 7
 
 //-----------------------------------------------------
 
-//Rest operator en destructuring
-const [head, ...tail] = [1, 2, 3, 4]; //rest operator (spread) zal de rest assignen aan de variabele 'tail' in dit geval.
-console.log(head, tail ) // Output : 1 [2,3,4]
+// Rest-operator in destructuring (overige elementen vangen)
+const [head, ...tail] = [1, 2, 3, 4];
+console.log(head, tail); // Output: 1 [2, 3, 4]
 
-//8. destructuring van een string met rest operator
+// String destructureren met rest-operator
 const [x, ...y] = 'abc';
-console.log(x, y); //output : a [b , c]
+console.log(x, y); // Output: 'a' ['b', 'c']
 
 //-----------------------------------------------------
 
-//.entries() gebruiken met destructuring in een for...of loop
+// Gebruik van .entries() met destructuring in een loop
 const arrLetters = ["a", "b"];
-for (const [index, element] of arrLetters.entries()) { //bij entries krijg je 2 waarden terug -> key en value
-    //we plaatsen de key in index en de value in element met destructuring en loggen deze
-    console.log(index, element);
+for (const [index, element] of arrLetters.entries()) {
+    console.log(index, element); // Toont index en bijbehorende waarde
 }
 
 
 //-----------------------------------------------------
 
-//OBJECT DESTRUCTURING
-
 const person = {
-    name: "Alice",
-    age: 25,
-    city: "New York"
+  name: "Alice",
+  age: 25,
+  city: "New York"
 };
 
-//zonder destructuring
-
+// Zonder destructuring: handmatige toewijzing
 // const name = person.name;
 // const age = person.age;
 // const city = person.city;
 
-//met destructuring - volgorde is niet van belang!!
+// Met destructuring: direct eigenschappen toewijzen, volgorde maakt niet uit
 const { age, name: newName, city } = person;
-console.log(newName, age, city);
+console.log(newName, age, city); // Output: 'Alice', 25, 'New York'
 
-//items negeren - property niet vermelden!
+// Eigenschappen overslaan
 const { city: city2, name } = person;
 
-//Standaard waarde
+// Standaardwaarden instellen
 const { name:name2, message = "Something went wrong" } = {name: "Niels"};
-console.log(message);
+console.log(message); // Output: 'Something went wrong'
 
-//Variabele naam wijzigen
+// Variabele naam wijzigen bij destructuring
 const { name: fullName, age: personAge, city: residence } = person;
 console.log(fullName); // Output: 'Alice'
 console.log(personAge); // Output: 25
 console.log(residence); // Output: 'New York'
 
-
-//spread operator ( rest)
+// Gebruik van de rest-operator bij objecten
 const person2 = { name: "Alice", age: 25, city: "New York", country: "USA" };
-const { name: name1, age:age1, ...address} = person2;
+const { name: name1, age: age1, ...address} = person2;
 console.log(name1); // Output: 'Alice'
 console.log(age1); // Output: 25
 console.log(address); // Output: { city: 'New York', country: 'USA' }
 
-//for ... of loop met destructuring
+//-----------------------------------------------------
+
+// For...of loop met destructuring
 const extendedPeople = [
-    {
-      name: "Mike Smith",
-      family: {
-        mother: "Jane Smith",
-        father: "Harry Smith",
-        sister: "Samantha Smith",
-      },
-      age: 35,
+  {
+    name: "Mike Smith",
+    family: {
+      mother: "Jane Smith",
+      father: "Harry Smith",
+      sister: "Samantha Smith",
     },
-    {
-      name: "Tom Jones",
-      family: {
-        mother: "Norah Jones",
-        father: "Richard Jones",
-        brother: "Howard Jones",
-      },
-      age: 25,
+    age: 35,
+  },
+  {
+    name: "Tom Jones",
+    family: {
+      mother: "Norah Jones",
+      father: "Richard Jones",
+      brother: "Howard Jones",
     },
+    age: 25,
+  },
 ];
-  
-for (const { name, family: { father } } of extendedPeople) {
-    console.log(`Name ${name} , Father: ${father}`);
+
+for (const { name, family: { father, mother } } of extendedPeople) {
+  console.log(`Name: ${name}, Father: ${father}, Mother: ${mother}`);
 }
 
+//-----------------------------------------------------
 
-//Object als parameter van een functie
-function printPerson({name,age,city}) {
-    console.log(`Name: ${name}`);
-    console.log(`Age: ${age}`);
-    console.log(`City: ${city}`);
+// Object destructureren als parameter in een functie
+function printPerson({ name, age, city }) {
+  console.log(`Name: ${name}`);
+  console.log(`Age: ${age}`);
+  console.log(`City: ${city}`);
 }
 
 printPerson(person);
-
