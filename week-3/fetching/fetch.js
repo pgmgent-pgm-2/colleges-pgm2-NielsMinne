@@ -74,7 +74,7 @@ const getData = async(callback) => {
           return;
       }
 
-      throw Error("Unable to fetch the data");
+      throw new Error("Unable to fetch the data");
   }
   catch(error){
       console.log(`Catch: ${error}`);
