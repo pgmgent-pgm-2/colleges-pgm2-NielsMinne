@@ -9,4 +9,5 @@ async function fetchData() {
     showData(message)
 }
 
+
 fetchData();
