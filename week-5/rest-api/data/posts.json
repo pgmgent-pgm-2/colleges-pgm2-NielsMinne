@@ -1,17 +1,22 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "title": "Post 1",
     "description": "Beschrijving van post 1"
   },
   {
-    "id": 2,
+    "id": "2",
     "title": "Post 2",
     "description": "Beschrijving van post 2"
   },
   {
-    "id": 3,
+    "id": "3",
     "title": "Post 3",
-    "description": "Beschrijving van post 3"
+    "description": "  Beschrijving van post 3"
+  },
+  {
+    "id": "69cb4c38-1d8c-49f1-8011-3cf864a4cf5d",
+    "title": "Nieuwe post ",
+    "description": "Blablabla"
   }
 ]
