@@ -10,6 +10,6 @@ postRouter.get('/posts', (req, res) => getPosts(req, res));
 postRouter.post('/posts', (req, res) => createPost(req, res));
 
 
-postRouter.delete('/posts/1', (req, res) => deletePost(req, res));
+postRouter.delete('/posts/:id', (req, res) => deletePost(req, res));
 
 module.exports = postRouter;
