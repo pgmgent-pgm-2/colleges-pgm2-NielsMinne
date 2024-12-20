@@ -2,18 +2,14 @@ const express = require('express');
 
 const postRouter = express.Router();
 
-const { getPosts } = require('../controllers/postController.js');
+const { getPosts, createPost, deletePost } = require('../controllers/postController.js');
 
 
 postRouter.get('/posts', (req, res) => getPosts(req, res));
 
-postRouter.post('/posts', (req, res) => {
-    res.json({ message: "Post ontvangen" });
-})
+postRouter.post('/posts', (req, res) => createPost(req, res));
 
 
-postRouter.delete('/posts/1', (req, res) => {
-    res.json({ message: "we verwijderen een post" });
-})
+postRouter.delete('/posts/1', (req, res) => deletePost(req, res));
 
 module.exports = postRouter;
