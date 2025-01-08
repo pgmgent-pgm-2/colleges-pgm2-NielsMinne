@@ -6,7 +6,8 @@ export const API_URL = "http://localhost:3000";
 export async function getPosts() {
     const response = await fetch(`${API_URL}/posts`);
     const data = await response.json();
-    console.log('posts: ', data);
+    
+    
     showPosts(data);
     return data;
 }
@@ -32,15 +33,21 @@ function addListenerToButtons($buttons){
 
 function showPosts(posts) {
     const $list = document.getElementById('news');
-    $list.innerHTML = posts.map(post => `
+    if ($list) {
+        
+    
+        $list.innerHTML = posts.map(post => `
         <li>
         <article>
+        <a href="/detail.html?id=${post.id}">
         <strong>${post.title}</strong>
         <p>${post.description}</p>
         <button data-uuid="${post.id}">Delete</button>
+        </a>
         </article>
         </li>
         `).join('');
+    }
     
     const $buttons = document.querySelectorAll("button[data-uuid]");
     addListenerToButtons($buttons);
